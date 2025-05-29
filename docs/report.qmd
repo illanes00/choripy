@@ -1,0 +1,14 @@
+---
+title: "Hello-World Report"
+bibliography: ../references/bibliography.bib
+csl: apa.csl
+format:
+  pdf:
+    keep-tex: true
+---
+
+```{r}
+#| echo: false
+import pandas as pd, matplotlib.pyplot as plt
+df = pd.read_parquet("data/processed/features.parquet")
+plt.plot(df['incidents'])

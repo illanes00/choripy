@@ -1,0 +1,14 @@
+defaults:
+  - _self_
+  - db: local
+
+project:
+  name: choripy_demo_etl
+
+db:
+  driver: postgres
+  host: localhost
+  port: 5432
+  user: postgres
+  pass: postgres
+  name: choripy_demo

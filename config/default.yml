@@ -1,0 +1,8 @@
+project_name: choripy
+postgres:
+  host: localhost
+  port: 5432
+  user: postgres
+  password: postgres
+  db: choripy_demo
+log_level: INFO

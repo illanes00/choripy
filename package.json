@@ -1,0 +1,10 @@
+{
+  "name": "seguridad-front",
+  "scripts": {
+    "build:css": "sass static/css/main.scss static/css/main.css",
+    "build:js": "echo 'Bundling JS...'"
+  },
+  "devDependencies": {
+    "sass": "^1.58.0"
+  }
+}

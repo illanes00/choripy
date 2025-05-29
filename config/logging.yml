@@ -1,0 +1,27 @@
+version: 1
+disable_existing_loggers: false
+
+formatters:
+  color:
+    (): rich.logging.RichFormatter
+    datefmt: '%H:%M:%S'
+    rich_tracebacks: true
+
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: color
+    stream: ext://sys.stdout
+  file:
+    class: logging.handlers.TimedRotatingFileHandler
+    level: INFO
+    formatter: color
+    filename: logs/app.log
+    when: midnight
+    backupCount: 14
+    encoding: utf-8
+
+root:
+  level: INFO
+  handlers: [console, file]

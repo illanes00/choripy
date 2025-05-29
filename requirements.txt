@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+pandas
+numpy
+sqlalchemy[asyncio]
+psycopg[binary]
+alembic
+python-dotenv
+rich
+flask

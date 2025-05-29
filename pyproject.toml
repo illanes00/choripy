@@ -1,0 +1,46 @@
+[project]
+name = "choripy"
+version = "0.1.0"
+description = "ETL + API + análisis para proyectos de seguridad pública"
+authors = [{ name="Martín Illanes", email="martin@ejemplo.cl" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pandas",
+  "numpy",
+  "sqlalchemy[asyncio]",
+  "psycopg[binary]",
+  "alembic",
+  "python-dotenv",
+  "rich",
+  "flask",              # básico flask
+]
+
+[project.optional-dependencies]
+dev = [
+  "black",
+  "ruff",
+  "flake8",
+  "pytest",
+  "pytest-asyncio",
+  "pre-commit",
+  "quarto-cli"
+]
+
+[tool.black]
+line-length = 88
+
+[tool.ruff]
+line-length = 88
+
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+flake8 = "^7.2.0"
+ruff = "^0.11.12"
+pytest = "^8.3.5"
+pytest-asyncio = "^1.0.0"
+pre-commit = "^4.2.0"
+quarto-cli = "^1.7.31"
+
