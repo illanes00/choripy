@@ -2,6 +2,8 @@
 black
 ruff
 flake8
+isort
 pytest
 pytest-asyncio
 pre-commit
+coverage

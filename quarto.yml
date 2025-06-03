@@ -1,0 +1,8 @@
+project:
+  type: website
+  output-dir: .quarto_output
+
+format:
+  html:
+    embed-resources: true
+    toc: true
