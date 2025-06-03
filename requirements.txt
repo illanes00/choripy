@@ -16,3 +16,17 @@ alembic
 hydra-core
 jinja2
 quarto-cli
+Flask
+Flask-Admin
+Flask-SQLAlchemy
+Flask-Babel
+Authlib
+markdown        # para convertir Markdown a HTML
+requests        # para proxy de métricas
+fastapi
+uvicorn
+python-dotenv
+authlib
+starlette
+python-multipart
+jinja2   # si necesitas templates

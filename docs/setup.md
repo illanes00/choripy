@@ -1,14 +1,21 @@
-# Setup rápido
+# Setup rápido (sin Docker)
 
 ```bash
-# 1. clona y crea venv
-git clone <repo>; cd <repo>
+# 1. Clona el repo
+git clone <repo>
+cd <repo>
+
+# 2. Copia y edita variables de entorno
+cp .env.example .env
+# Modifica en .env: DATABASE_URL, REDIS_URL, SECRET_KEY, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET...
+
+# 3. Crea y activa el virtualenv, luego instala dependencias
 python -m venv .venv && source .venv/bin/activate
-make setup        # instala deps + pre-commit
+pip install -r requirements-dev.txt
 
-# 2. arranca Postgres
-docker compose up -d db
+# 4. Aplica migraciones Alembic para crear tablas
+make migrate
 
-# 3. carga datos dummy y levanta API
-make etl
-./run.py serve-api
+# 5. Arranca FastAPI + Flask
+make serve-all
+```

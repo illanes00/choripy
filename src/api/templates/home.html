@@ -1,0 +1,23 @@
+{# src/api/templates/home.html #}
+<!DOCTYPE html>
+<html lang="{{ request.scope.lang }}">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ _("Página de Inicio") }}</title>
+    <link rel="stylesheet" href="/static/css/main.css" />
+  </head>
+  <body>
+    <div style="padding:2rem; max-width:600px; margin:auto;">
+      <h1>{{ _("Hola FastAPI 🚀") }}</h1>
+      <p>{{ _("Este es un ejemplo de internacionalización.") }}</p>
+
+      {% if request.session.get("user") %}
+        <p>{{ _("Usuario: %(email)s", email=request.session["user"]["email"]) }}</p>
+        <a href="/dashboard">{{ _("Ir al dashboard") }}</a> |
+        <a href="/logout">{{ _("Cerrar sesión") }}</a>
+      {% else %}
+        <a href="/login">{{ _("Iniciar sesión con Google") }}</a>
+      {% endif %}
+    </div>
+  </body>
+</html>

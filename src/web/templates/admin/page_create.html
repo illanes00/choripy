@@ -1,0 +1,18 @@
+{# src/web/templates/admin/page_create.html #}
+{% extends 'admin/model/create.html' %}
+
+{% block tail %}
+  {{ super() }}
+  <!-- SimpleMDE CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/simplemde.min.css') }}">
+  <!-- SimpleMDE JS -->
+  <script src="{{ url_for('static', filename='js/simplemde.min.js') }}"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var textarea = document.getElementById("content");
+      if (textarea) {
+        new SimpleMDE({ element: textarea });
+      }
+    });
+  </script>
+{% endblock %}

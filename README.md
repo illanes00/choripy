@@ -1,7 +1,10 @@
 
 # ChoriPy
 
-[![PyPI version](https://img.shields.io/pypi/v/choripy)](https://pypi.org/project/choripy) [![CI](https://github.com/your-org/choripy/actions/workflows/ci.yml/badge.svg)](https://github.com/your-org/choripy/actions) [![License: MIT](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
+[![PyPI version](https://img.shields.io/pypi/v/choripy.svg)](https://pypi.org/project/choripy)
+[![CI](https://github.com/tu-org/choripy/actions/workflows/ci.yml/badge.svg)](https://github.com/tu-org/choripy/actions)
+[![CD](https://github.com/tu-org/choripy/actions/workflows/cd.yml/badge.svg)](https://github.com/tu-org/choripy/actions)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 > **ChoriPy** is a **pure-Python** DataOps starter stack: reproducible ETL → FastAPI → background tasks → Quarto reporting → monitoring, all wired up and ready to clone-and-go.
 
@@ -72,19 +75,29 @@ Clone, type two commands, and you’ll have a full ETL→API→report→monitor 
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/your-org/choripy.git
+git clone https://github.com/tu-org/choripy.git
 cd choripy
 
-# 1. Copy env template & configure
+# 1. Copiar plantilla de entorno y configurar variables
 cp .env.example .env
-#    edit DATABASE_URL, REDIS_URL, SECRET_KEY in .env
+# Edita .env con DATABASE_URL, REDIS_URL, SECRET_KEY, OAUTH_CLIENT_ID, OAUTH_CLIENT_SECRET, etc.
 
-# 2. Bootstrap Python env, install deps, compile SCSS
-./run.py init
+# 2. Crear el entorno virtual e instalar deps
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements-dev.txt
 
-# 3. Ensure Redis & Postgres are running, then start the API
-./run.py up
-````
+# 3. Aplicar migraciones en la base de datos
+make migrate
+
+# 4. Ejecutar el stack completo (FastAPI + Flask)
+make serve-all
+```
+
+**Nota**: si prefieres invocar directamente `python run.py serve_all`, reemplaza el paso 4 por:
+```bash
+python run.py serve_all
+```
 
 ---
 

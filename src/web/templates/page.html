@@ -1,0 +1,16 @@
+<!-- src/web/templates/page.html -->
+<!doctype html>
+<html lang="{{ get_locale() }}">
+  <head>
+    <meta charset="utf-8" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  </head>
+  <body>
+    <div class="container" style="margin: 2rem auto; max-width: 700px;">
+      <h1>{{ title }}</h1>
+      <hr />
+      <div>{{ content|safe }}</div>
+    </div>
+  </body>
+</html>

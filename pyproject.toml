@@ -15,7 +15,7 @@ dependencies = [
   "alembic",
   "python-dotenv",
   "rich",
-  "flask",              # básico flask
+  "flask",
 ]
 
 [project.optional-dependencies]
@@ -44,3 +44,16 @@ pytest-asyncio = "^1.0.0"
 pre-commit = "^4.2.0"
 quarto-cli = "^1.7.31"
 
+[tool:pytest]
+addopts = --cov=src --cov-report=term-missing -q
+
+[tool.setuptools.packages.find]
+where = ["src"]
+exclude = ["tests*", "docs*"]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project.scripts]
+choripy = "run:app"

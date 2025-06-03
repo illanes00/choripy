@@ -7,3 +7,9 @@ pytest
 pytest-asyncio
 pre-commit
 coverage
+pytest
+pytest-asyncio
+httpx             # para llamadas async a FastAPI
+flask-testing     # utilidades de testing para Flask
+faker             # datos de prueba
+vcrpy             # opcional para grabar llamadas HTTP (OAuth, métricas)
